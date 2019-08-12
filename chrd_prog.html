@@ -1,0 +1,290 @@
+<html>
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+
+<meta name="ProgId" content="FrontPage.Editor.Document">
+
+<title>A Rule</title>
+
+</head>
+
+<body>
+
+<h1 align="center">A Rule-based System for Tuning<br>
+
+Chord Progressions</h1>
+
+<p align="center"><i>by </i><i>Robert Asmussen, PhD</i></p>
+
+<h3 align="center">Online Examples</h3>
+
+<p align="center"><img border="0" src="title.gif" width="289" height="72"></p>
+
+
+
+<CENTER>
+
+
+
+<HR ALIGN=CENTER></CENTER>
+
+
+
+<UL>
+
+<LI><a href="#Chrd_prog Chord Progression Example">Chord Progression Example</a></LI>
+
+
+
+<UL>
+
+<LI><a href="#Chrd_prog Traditionally Notated Score">Traditionally Notated
+
+Score</a></LI>
+
+
+
+<LI><a href="#Chrd_prog Csound Orchestra">Csound Orchestra</a>
+
+</LI>
+
+
+
+<LI><a href="#Chrd_prog Csound Score">Csound Score</a></LI>
+
+</UL>
+
+</UL>
+
+
+
+<HR ALIGN=CENTER>
+
+
+
+<h2 align="center"><a name="Chrd_prog Chord Progression Example"></a>Chord Progression Example</h2>
+
+<p>The traditionally notated score below illustrates the familiar chord progression I-vi-ii-V-I.
+
+Beneath each note is a fraction representing the frequency relative to
+
+tonic. To obtain the frequencies in Hertz, simply multiply each such fraction by
+
+65.406, the octave equivalent of C2. The rules, referenced in the comments of
+
+the <a href="#Chrd_prog Csound Score">Csound Score</a> below, by which to obtain the fractions representing relative
+
+frequencies are given in <a href="rules.html#Rules Heuristics for Tuning Chords">Heuristics for Tuning Chords</a>.</p>
+
+<p>&nbsp;</p>
+
+<h3><a name="Chrd_prog Traditionally Notated Score"></a>Traditionally Notated Score</h3>
+
+<p><a href="chord_prog_pluck.mp3"><img border="0" src="examplec.gif" width="316" height="265"></a></p>
+
+<p><a href="chord_prog_pluck.mp3">chord_prog_pluck.MP3 (250KB)</a></p>
+
+<p>&nbsp;</p>
+
+<p>Notice that the low D in the bass of measure one, beat three, is tuned as 20/9. In
+
+the same measure but in the treble and on beat four, there is another D tuned as 9/1, which is not an octave equivalent of 20/9. Such redefined notes
+
+are known as &quot;mutable tones&quot;. Mutable tones do not signify a weakness in just intonation; on the contrary,
+
+they indicate a need for more than twelve tones, even in a simple and common
+
+two-chord progression such as ii-V.</p>
+
+<p>It may seem unnatural to have two different tunings for octave equivalents of
+
+D's in adjacent chords; however, it is absolutely necessary in this particular
+
+passage when the following conditions are assumed:</p>
+
+<ol>
+
+  <li>The C is a common tone between the first two triads (C major and A
+
+minor).</li>
+
+  <li>The A is a common tone between the second two triads (A minor and D minor).</li>
+
+  <li>The G in the fourth triad (G major) is related to tonic C as an octave
+
+equivalent of 3:1.</li>
+
+  <li>The relative frequencies within a major triad are always octave equivalents of 1, 3
+
+and 5.</li>
+
+  <li>The relative frequencies within a minor chord are always octave equivalents of 3, 5
+
+and 15.</li>
+
+</ol>
+
+<p>
+
+To find freely available Csound software and tutorials, the <a href="http://mitpress.mit.edu/e-books/csound/frontpage.html">Csound
+
+Front Page</a> is a good place to start.</p>
+
+<p>
+
+&nbsp;</p>
+
+<h3><a name="Chrd_prog Csound Orchestra"></a>Csound Orchestra</h3>
+
+<p>sr = 44100<br>
+
+kr = 441<br>
+
+ksmps = 100<br>
+
+nchnls = 1<br>
+
+</p>
+
+<p>instr 1<br>
+
+a1 pluck 9000, (p5/p6)*65.406, (p5/p6)*65.406, 0, 1, 0, 0<br>
+
+out a1<br>
+
+endin</p>
+
+<p>instr 2<br>
+
+a1 pluck 9000, (p5/p6)*65.406, (p5/p6)*65.406, 0, 1, 0, 0<br>
+
+out a1<br>
+
+endin</p>
+
+<p>instr 3<br>
+
+a1 pluck 9000, (p5/p6)*65.406, (p5/p6)*65.406, 0, 1, 0, 0<br>
+
+out a1<br>
+
+endin</p>
+
+<p>instr 4<br>
+
+a1 pluck 9000, (p5/p6)*65.406, (p5/p6)*65.406, 0, 1, 0, 0<br>
+
+out a1<br>
+
+endin</p>
+
+<p>&nbsp;
+
+</p>
+
+<h3><a name="Chrd_prog Csound Score"></a>Csound Score</h3>
+
+<p>; &quot;Chord Progression Example&quot;<br>
+
+; Key: C Major<br>
+
+; 1/1 = C2 (C2 = 65.406 cps)<br>
+
+t 0 30 ; tempo 30 beats per minute<br>
+
+<br>
+
+; Measure 1 Beat 1 Chord Type: I<br>
+
+i1 0 1 0 10 1 ; (E5, Rule: 1.b)<br>
+
+i2 0 1 0 6 1 ; (G4, Rule: 1.c)<br>
+
+i3 0 1 0 6 1 ; (G4, Rule: 1.c)<br>
+
+i4 0 1 0 2 1 ; (C3, Rule: 1.a)<br>
+
+; Measure 1 Beat 2 Chord Type: vi<br>
+
+i1 1 1 0 8 1 ; (C5, Rule: 18.b)<br>
+
+i2 1 1 0 20 3 ; (A4, Rule: 18.a)<br>
+
+i3 1 1 0 5 1 ; (E4, Rule: 18.c)<br>
+
+i4 1 1 0 10 3 ; (A3, Rule: 18.a)<br>
+
+; Measure 1 Beat 3 Chord Type: ii<br>
+
+i1 2 1 0 32 3 ; (F5, Rule: 5.b)<br>
+
+i2 2 1 0 20 3 ; (A4, Rule: 5.c)<br>
+
+i3 2 1 0 20 3 ; (A4, Rule: 5.c)<br>
+
+i4 2 1 0 20 9 ; (D3, Rule: 5.a)<br>
+
+; Measure 1 Beat 4 Chord Type: V<br>
+
+i1 3 1 0 9 1 ; (D5, Rule: 15.c)<br>
+
+i2 3 1 0 15 2 ; (B4, Rule: 15.b)<br>
+
+i3 3 1 0 6 1 ; (G4, Rule: 15.a)<br>
+
+i4 3 1 0 3 1 ; (G3, Rule: 15.a)<br>
+
+; Measure 2 Beat 1 Chord Type: I<br>
+
+i1 4 4 0 10 1 ; (E5, Rule: 1.b)<br>
+
+i2 4 4 0 8 1 ; (C5, Rule: 1.a)<br>
+
+i3 4 4 0 6 1 ; (G4, Rule: 1.c)<br>
+
+i4 4 4 0 2 1 ; (C3, Rule: 1.a)<br>
+
+e
+
+</p>
+
+<p>
+
+<br>
+
+<i>
+
+Robert Asmussen<br>
+
+</i>
+
+<i>2008</i>
+
+</p>
+
+
+<a href="mailto:musrla@hotmail.com"><img src="image002.gif" /></a>
+
+
+<p align="center">
+
+<a href="index.html"><img border="0" src="prev.gif" width="64" height="64"></a>
+
+<a href="index.html"><img border="0" src="toc.gif" width="64" height="64"></a>
+
+<a href="rules.html"><img border="0" src="next.gif" width="64" height="64"></a>
+
+</p>
+
+
+
+</body>
+
+
+
+</html>
+

@@ -1,0 +1,822 @@
+<html>
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+
+<meta name="ProgId" content="FrontPage.Editor.Document">
+
+<title>A Rule</title>
+
+</head>
+
+<body>
+
+<h1 align="center">A Rule-based System for Tuning<br>
+
+Chord Progressions</h1>
+
+<p align="center"><i>by Robert Asmussen, PhD</i></p>
+
+<h3 align="center">Online Examples</h3>
+
+<p align="center"><img border="0" src="title.gif" width="289" height="72"></p>
+
+
+
+<CENTER>
+
+
+
+<HR ALIGN=CENTER></CENTER>
+
+
+
+<UL>
+
+<LI><a href="#Bach2 Bach Chorale Example II">Bach Chorale Example II</a></LI>
+
+
+
+<UL>
+
+<LI><a href="#Bach2 Traditionally Notated Score">Traditionally Notated
+
+Score</a></LI>
+
+
+
+<LI><a href="#Bach2 Csound Orchestra">Csound Orchestra</a>
+
+</LI>
+
+
+
+<LI><a href="#Bach2 Csound Score">Csound Score</a></LI>
+
+</UL>
+
+</UL>
+
+
+
+<HR ALIGN=CENTER>
+
+
+
+<h2 align="center"><a name="Bach2 Bach Chorale Example II"></a>Bach Chorale Example II</h2>
+
+<p>This chorale, &quot;Ach Gott, wie manches Herzeleid&quot;, contains
+
+identifiable tonal contradictions. For example, in measure 6, beat 4, the chord
+
+type is vii<sup>o</sup>/ii, with a passing D in the bass.&nbsp;If the D is tuned according
+
+to Rule 24, then A#4 (25:3) is increased by a major third (is multiplied by 5:4)
+
+for a value of 125:12. Adjusted downward 2 octaves (divided by 4), the value for
+
+D3 in the bass is 125:48, roughly 2.604.</p>
+
+<p>If the same D is tuned according to Rule 29, then C#4 (10:1) is decreased by a
+
+major seventh (is divided by 15:8) for a value of 16:3. Adjusted downward 1
+
+octave (divided by 2), the value for D3 in the bass is 8:3, roughly 2.667.</p>
+
+<p>The <a href="#Bach2 Csound Score"> Csound score</a> created for this chorale provides silence for the duration
+
+of each of the three contradictory chords. These chords can be found in Measure 6 Beat 4, Measure 8 Beat 2.5,
+
+and Measure 9 Beat 1.5.</p>
+
+<p>The fraction representing the frequency for each note, given as p5/p6 in each line of the
+
+<a href="#Bach2 Csound Score"> Csound score</a>, is multiplied by 55, which is an octave equivalent of
+
+A1. For instance, in the first event of the <a href="#Bach2 Csound Score"> Csound score</a> is the following line:</p>
+
+<p>
+
+i1 3 0.5 0 8 1 ; (A4, Rule: 1.a)</p>
+
+<p>For this event, parameter fields are defined as follows:</p>
+
+<p>p1 (instrument number) is 1<br>
+
+p2 (start time) is 3<br>
+
+p3 (duration) is 0.5<br>
+
+p4 (unused) is 0<br>
+
+p5 (frequency numerator) is 8<br>
+
+p6 (frequency denominator) is 1</p>
+
+<p>The frequency for this event is therefore 8/1 * 55, which is 440 Hz.<br>
+
+</p>
+
+<p> Both traditionally notated and
+
+Csound versions are given.</p>
+
+<p>&nbsp;</p>
+
+<h3><a name="Bach2 Traditionally Notated Score"></a>Traditionally Notated Score</h3>
+
+<p><a href="riem_156_pluck.mp3"><img border="0" src="riem_156.gif" width="539" height="511"></a></p>
+
+<p><a href="riem_156_pluck.mp3">riem_156_pluck.MP3 (786 KB)</a></p>
+
+<p>&nbsp;</p>
+
+<h3><a name="Bach2 Csound Orchestra"></a>Csound Orchestra</h3>
+
+<p>sr = 44100<br>
+
+kr = 441<br>
+
+ksmps = 100<br>
+
+nchnls = 1<br>
+
+</p>
+
+<p>instr 1<br>
+
+a1 pluck 9000, (p5/p6)*55, (p5/p6)*55, 0, 1, 0, 0<br>
+
+out a1<br>
+
+endin</p>
+
+<p>instr 2<br>
+
+a1 pluck 9000, (p5/p6)*55, (p5/p6)*55, 0, 1, 0, 0<br>
+
+out a1<br>
+
+endin</p>
+
+<p>instr 3<br>
+
+a1 pluck 9000, (p5/p6)*55, (p5/p6)*55, 0, 1, 0, 0<br>
+
+out a1<br>
+
+endin</p>
+
+<p>instr 4<br>
+
+a1 pluck 9000, (p5/p6)*55, (p5/p6)*55, 0, 1, 0, 0<br>
+
+out a1<br>
+
+endin</p>
+
+<p>&nbsp;
+
+</p>
+
+<h3><a name="Bach2 Csound Score"></a>Csound Score</h3>
+
+<p>; Chorale File Number: 000306b_.sco<br>
+
+; Riemenschneider #156<br>
+
+; &quot;Ach Gott, wie manches Herzeleid&quot;<br>
+
+; Key: A Major<br>
+
+; 1/1 = A1 (A1 = 55 cps)<br>
+
+</p>
+
+<p>
+
+t 0 40 ; tempo 40 beats per minute<br>
+
+</p>
+
+<p>
+
+a 0 0 2.5 ; advance sound by 2.5 beats to avoid silence
+
+</p>
+
+<p>
+
+; Measure 1 Beat 4 Chord Type: I (-5)<br>
+
+i1 3 0.5 0 8 1 ; (A4, Rule: 1.a)<br>
+
+i2 3 0.5 0 5 1 ; (C#4, Rule: 1.b)<br>
+
+i3 3 0.5 0 4 1 ; (A3, Rule: 1.a)<br>
+
+i4 3 0.5 0 4 1 ; (A3, Rule: 1.a)<br>
+
+; Measure 1 Beat 4.5 Chord Type: I (Embedded Dom Passing)<br>
+
+i1 3.5 0.5 0 8 1 ; (A4, Rule: 1.a)<br>
+
+i2 3.5 0.5 0 16 3 ; (D4, Rule: 22{A-&gt;D} 23{A-&gt;D})<br>
+
+i3 3.5 0.5 0 9 2 ; (B3, Rule: 27{D-&gt;B})<br>
+
+i4 3.5 0.5 0 4 1 ; (A3, Rule: 1.a)<br>
+
+; Measure 2 Beat 1 Chord Type: I<br>
+
+i1 4 0.5 0 8 1 ; (A4, Rule: 1.a)<br>
+
+i2 4 0.5 0 6 1 ; (E4, Rule: 1.c)<br>
+
+i3 4 0.5 0 5 1 ; (C#4, Rule: 1.b)<br>
+
+i4 4 0.5 0 2 1 ; (A2, Rule: 1.a)<br>
+
+; Measure 2 Beat 1.5 Chord Type: I (Embedded Dom Passing)<br>
+
+i1 4.5 0.5 0 8 1 ; (A4, Rule: 1.a)<br>
+
+i2 4.5 0.5 0 6 1 ; (E4, Rule: 1.c)<br>
+
+i3 4.5 0.5 0 16 3 ; (D4, Rule: 22{A-&gt;D})<br>
+
+i4 4.5 0.5 0 9 4 ; (B2, Rule: 23{E-&gt;B})<br>
+
+; Measure 2 Beat 2 Chord Type: I<sup>6</sup><br>
+
+i1 5 1 0 8 1 ; (A4, Rule: 1.a)<br>
+
+i2 5 1 0 4 1 ; (A3, Rule: 1.a)<br>
+
+i3 5 1 0 6 1 ; (E4, Rule: 1.c)<br>
+
+i4 5 1 0 5 2 ; (C#3, Rule: 1.b)<br>
+
+; Measure 2 Beat 3 Chord Type: IV<br>
+
+i1 6 0.5 0 20 3 ; (F#4, Rule: 11.b)<br>
+
+i2 6 0.5 0 16 3 ; (D4, Rule: 11.a)<br>
+
+i3 6 0.5 0 4 1 ; (A3, Rule: 11.c)<br>
+
+i4 6 0.5 0 8 3 ; (D3, Rule: 11.a)<br>
+
+; Measure 2 Beat 3.5 Chord Type: IV (Embedded Dom Passing)<br>
+
+i1 6.5 0.5 0 15 2 ; (G#4, Rule: 24{E-&gt;G#})<br>
+
+i2 6.5 0.5 0 16 3 ; (D4, Rule: 11.a)<br>
+
+i3 6.5 0.5 0 4 1 ; (A3, Rule: 11.c)<br>
+
+i4 6.5 0.5 0 3 1 ; (E3, Rule: 23{A-&gt;E})<br>
+
+; Measure 2 Beat 4 Chord Type: vi<br>
+
+i1 7 0.5 0 8 1 ; (A4, Rule: 18.b)<br>
+
+i2 7 0.5 0 5 1 ; (C#4, Rule: 18.c)<br>
+
+i3 7 0.5 0 4 1 ; (A3, Rule: 18.b)<br>
+
+i4 7 0.5 0 10 3 ; (F#3, Rule: 18.a)<br>
+
+; Measure 2 Beat 4.5 Chord Type: I<sup>4/3</sup><br>
+
+i1 7.5 0.5 0 8 1 ; (A4, Rule: 3.a)<br>
+
+i2 7.5 0.5 0 5 1 ; (C#4, Rule: 3.b)<br>
+
+i3 7.5 0.5 0 15 4 ; (G#3, Rule: 3.d)<br>
+
+i4 7.5 0.5 0 3 1 ; (E3, Rule: 3.c)<br>
+
+; Measure 3 Beat 1 Chord Type: V<sup>6</sup>/V<br>
+
+i1 8 0.5 0 9 1 ; (B4, Rule: 15.a)<br>
+
+i2 8 0.5 0 9 2 ; (B3, Rule: 15.a)<br>
+
+i3 8 0.5 0 27 8 ; (F#3, Rule: 15.c)<br>
+
+i4 8 0.5 0 45 16 ; (D#3, Rule: 15.b)<br>
+
+; Measure 3 Beat 1.5 Chord Type: V<sup>6/5</sup>/V<br>
+
+i1 8.5 0.5 0 8 1 ; (A4, Rule: 16.d)<br>
+
+i2 8.5 0.5 0 9 2 ; (B3, Rule: 16.a)<br>
+
+i3 8.5 0.5 0 27 8 ; (F#3, Rule: 16.c)<br>
+
+i4 8.5 0.5 0 45 16 ; (D#3, Rule: 16.b)<br>
+
+; Measure 3 Beat 2 Chord Type: V (-5)<br>
+
+i1 9 0.5 0 15 2 ; (G#4, Rule: 15.b)<br>
+
+i2 9 0.5 0 6 1 ; (E4, Rule: 15.a)<br>
+
+i3 9 0.5 0 15 4 ; (G#3, Rule: 15.b)<br>
+
+i4 9 0.5 0 3 1 ; (E3, Rule: 15.a)<br>
+
+; Measure 3 Beat 2.5 Chord Type: I<sup>4/3</sup> (-3)<br>
+
+i1 9.5 0.5 0 15 2 ; (G#4, Rule: 3.d)<br>
+
+i2 9.5 0.5 0 6 1 ; (E4, Rule: 3.c)<br>
+
+i3 9.5 0.5 0 4 1 ; (A3, Rule: 3.a)<br>
+
+i4 9.5 0.5 0 3 1 ; (E3, Rule: 3.c)<br>
+
+; Measure 3 Beat 3 Chord Type: V/V<br>
+
+i1 10 1 0 27 4 ; (F#4, Rule: 15.c)<br>
+
+i2 10 1 0 45 8 ; (D#4, Rule: 15.b)<br>
+
+i3 10 1 0 9 2 ; (B3, Rule: 15.a)<br>
+
+i4 10 1 0 9 4 ; (B2, Rule: 15.a)<br>
+
+; Measure 3 Beat 4 Chord Type: V/V<br>
+
+i1 11 0.5 0 27 4 ; (F#4, Rule: 15.c)<br>
+
+i2 11 0.5 0 45 8 ; (D#4, Rule: 15.b)<br>
+
+i3 11 0.5 0 9 2 ; (B3, Rule: 15.a)<br>
+
+i4 11 0.5 0 9 4 ; (B3, Rule: 15.a)<br>
+
+; Measure 3 Beat 4.5 Chord Type: V<sup>4/2</sup>/V<br>
+
+i1 11.5 0.5 0 27 4 ; (F#4, Rule: 16.c)<br>
+
+i2 11.5 0.5 0 45 8 ; (D#4, Rule: 16.b)<br>
+
+i3 11.5 0.5 0 9 2 ; (B3, Rule: 16.a)<br>
+
+i4 11.5 0.5 0 4 1 ; (A3, Rule: 16.d)<br>
+
+; Measure 4 Beat 1 Chord Type: V<sup>6</sup><br>
+
+i1 12 0.5 0 15 2 ; (G#4, Rule: 15.b)<br>
+
+i2 12 0.5 0 6 1 ; (E4, Rule: 15.a)<br>
+
+i3 12 0.5 0 9 2 ; (B3, Rule: 15.c)<br>
+
+i4 12 0.5 0 15 4 ; (G#3, Rule: 15.b)<br>
+
+; Measure 4 Beat 1.5 Chord Type: V<sup>6/4</sup> (+4, 4 in bass)<br>
+
+i1 12.5 0.5 0 15 2 ; (G#4, Rule: 15.b)<br>
+
+i2 12.5 0.5 0 6 1 ; (E4, Rule: 15.a)<br>
+
+i3 12.5 0.5 0 9 2 ; (B3, Rule: 15.c)<br>
+
+i4 12.5 0.5 0 4 1 ; (A3, Rule: 22 (E-&gt;A))<br>
+
+; Measure 4 Beat 2 Chord Type: vii<sup>o</sup>/V (+4, 4 in bass)<br>
+
+i1 13 0.5 0 8 1 ; (A4, Rule: 20.c)<br>
+
+i2 13 0.5 0 27 4 ; (F#4, Rule: 20.b)<br>
+
+i3 13 0.5 0 45 8 ; (D#4, Rule: 20.a)<br>
+
+i4 13 0.5 0 15 4 ; (G#3, Rule: 22{D#-&gt;G#})<br>
+
+; Measure 4 Beat 2.5 Chord Type: vii<sup>o6</sup>/V<br>
+
+i1 13.5 0.5 0 8 1 ; (A4, Rule: 20.c)<br>
+
+i2 13.5 0.5 0 27 4 ; (F#4, Rule: 20.b)<br>
+
+i3 13.5 0.5 0 45 8 ; (D#4, Rule: 20.a)<br>
+
+i4 13.5 0.5 0 27 8 ; (F#3, Rule: 20.b)<br>
+
+; Measure 4 Beat 3 Chord Type: V (+2)<br>
+
+i1 14 0.5 0 9 1 ; (B4, Rule: 15.c)<br>
+
+i2 14 0.5 0 27 4 ; (F#4, Rule: 23{B-&gt;F#})<br>
+
+i3 14 0.5 0 15 4 ; (G#3, Rule: 15.b)<br>
+
+i4 14 0.5 0 3 1 ; (E3, Rule: 15.a)<br>
+
+; Measure 4 Beat 3.5 Chord Type: V<sup>4/3</sup>/V<br>
+
+i1 14.5 0.5 0 9 1 ; (B4, Rule: 16.a)<br>
+
+i2 14.5 0.5 0 45 8 ; (D#4, Rule: 16.b)<br>
+
+i3 14.5 0.5 0 4 1 ; (A3, Rule: 16.d)<br>
+
+i4 14.5 0.5 0 27 8 ; (F#3, Rule: 16.c)<br>
+
+; Measure 4 Beat 4 Chord Type: V<sup>6</sup><br>
+
+i1 15 0.5 0 6 1 ; (E4, Rule: 15.a)<br>
+
+i2 15 0.5 0 6 1 ; (E4, Rule: 15.a)<br>
+
+i3 15 0.5 0 9 2 ; (B3, Rule: 15.c)<br>
+
+i4 15 0.5 0 15 4 ; (G#3, Rule: 15.b)<br>
+
+; Measure 4 Beat 4.5 Chord Type: vi<sup>6/5</sup><br>
+
+i1 15.5 0.5 0 20 3 ; (F#4, Rule: 19.a)<br>
+
+i2 15.5 0.5 0 6 1 ; (E4, Rule: 19.d)<br>
+
+i3 15.5 0.5 0 5 1 ; (C#4, Rule: 19.c)<br>
+
+i4 15.5 0.5 0 4 1 ; (A3, Rule: 19.b)<br>
+
+; Measure 5 Beat 1 Chord Type: V<sup>6/4</sup><br>
+
+i1 16 0.5 0 15 2 ; (G#4, Rule: 15.b)<br>
+
+i2 16 0.5 0 6 1 ; (E4, Rule: 15.a)<br>
+
+i3 16 0.5 0 9 2 ; (B3, Rule: 15.c)<br>
+
+i4 16 0.5 0 9 2 ; (B3, Rule: 15.c)<br>
+
+; Measure 5 Beat 1.5 Chord Type: V<sup>7</sup>/V (-3)<br>
+
+i1 16.5 0.5 0 8 1 ; (A4, Rule: 16.d)<br>
+
+i2 16.5 0.5 0 27 4 ; (F#4, Rule: 16.c)<br>
+
+i3 16.5 0.5 0 9 2 ; (B3, Rule: 16.a)<br>
+
+i4 16.5 0.5 0 9 2 ; (B3, Rule: 16.a)<br>
+
+; Measure 5 Beat 2 Chord Type: V/V<br>
+
+i1 17 0.5 0 27 4 ; (F#4, Rule: 15.c)<br>
+
+i2 17 0.5 0 45 8 ; (D#4, Rule: 15.b)<br>
+
+i3 17 0.5 0 9 2 ; (B3, Rule: 15.a)<br>
+
+i4 17 0.5 0 9 4 ; (B2, Rule: 15.a)<br>
+
+; Measure 5 Beat 2.5 Chord Type: V<sup>7</sup>/V<br>
+
+i1 17.5 0.5 0 27 4 ; (F#4, Rule: 16.c)<br>
+
+i2 17.5 0.5 0 45 8 ; (D#4, Rule: 16.b)<br>
+
+i3 17.5 0.5 0 4 1 ; (A3, Rule: 16.d)<br>
+
+i4 17.5 0.5 0 9 4 ; (B2, Rule: 16.a)<br>
+
+; Measure 5 Beat 3 Chord Type: V<br>
+
+i1 18 1 0 6 1 ; (E4, Rule: 15.a)<br>
+
+i2 18 1 0 9 2 ; (B3, Rule: 15.c)<br>
+
+i3 18 1 0 15 4 ; (G#3, Rule: 15.b)<br>
+
+i4 18 1 0 3 1 ; (E3, Rule: 15.a)<br>
+
+; Measure 5 Beat 4 Chord Type: V<br>
+
+i1 19 1 0 9 1 ; (B4, Rule: 15.c)<br>
+
+i2 19 1 0 15 2 ; (G#4, Rule: 15.b)<br>
+
+i3 19 1 0 6 1 ; (E4, Rule: 15.a)<br>
+
+i4 19 1 0 3 1 ; (E3, Rule: 15.a)<br>
+
+; Measure 6 Beat 1 Chord Type: I<br>
+
+i1 20 0.5 0 10 1 ; (C#5, Rule: 1.b)<br>
+
+i2 20 0.5 0 8 1 ; (A4, Rule: 1.a)<br>
+
+i3 20 0.5 0 6 1 ; (E4, Rule: 1.c)<br>
+
+i4 20 0.5 0 4 1 ; (A3, Rule: 1.a)<br>
+
+; Measure 6 Beat 1.5 Chord Type: vi (+2, 2 in bass)<br>
+
+i1 20.5 0.5 0 10 1 ; (C#5, Rule: 18.c)<br>
+
+i2 20.5 0.5 0 8 1 ; (A4, Rule: 18.b)<br>
+
+i3 20.5 0.5 0 20 3 ; (F#4, Rule: 18.a)<br>
+
+i4 20.5 0.5 0 15 4 ; (G#3, Rule: 23{C#-&gt;G#})<br>
+
+; Measure 6 Beat 2 Chord Type: V/vi (susp. 4, 4 in bass)<br>
+
+i1 21 0.5 0 10 1 ; (C#5, Rule: 15.a)<br>
+
+i2 21 0.5 0 5 1 ; (C#4, Rule: 15.a)<br>
+
+i3 21 0.5 0 15 2 ; (G#4, Rule: 15.c)<br>
+
+i4 21 0.5 0 10 3 ; (F#3, Rule: 22{C#-&gt;F#})<br>
+
+; Measure 6 Beat 2.5 Chord Type: V<sup>6/5</sup>/vi<br>
+
+i1 21.5 0.5 0 10 1 ; (C#5, Rule: 15.a)<br>
+
+i2 21.5 0.5 0 5 1 ; (C#4, Rule: 15.a)<br>
+
+i3 21.5 0.5 0 15 2 ; (G#4, Rule: 15.c)<br>
+
+i4 21.5 0.5 0 25 8 ; (F3, Rule: 15.b)<br>
+
+; Measure 6 Beat 3 Chord Type: vi<br>
+
+i1 22 0.5 0 8 1 ; (A4, Rule: 18.b)<br>
+
+i2 22 0.5 0 20 3 ; (F#4, Rule: 18.a)<br>
+
+i3 22 0.5 0 5 1 ; (C#4, Rule: 18.c)<br>
+
+i4 22 0.5 0 10 3 ; (F#3, Rule: 18.a)<br>
+
+; Measure 6 Beat 3.5 Chord Type: V<sup>7</sup><br>
+
+i1 22.5 0.5 0 9 1 ; (B4, Rule: 16.c)<br>
+
+i2 22.5 0.5 0 15 2 ; (G#4, Rule: 16.b)<br>
+
+i3 22.5 0.5 0 16 3 ; (D4, Rule: 16.d)<br>
+
+i4 22.5 0.5 0 3 1 ; (E3, Rule: 16.a)<br>
+
+; Measure 6 Beat 4 Chord Type: vii<sup>o</sup>/ii (passing D)<br>
+
+; i1 23 0.5 0 10 1 ; (C#5, Rule: 20.b)<br>
+
+; i2 23 0.5 0 25 3 ; (A#4, Rule: 20.a)<br>
+
+; i3 23 0.5 0 160 27 ; (E4, Rule: 20.c)<br>
+
+; i4 23 0.5<br>
+
+; (D3, CONTRADICTION Rule 24 (A#-&gt;D) D=125:48<br>
+
+; violates Rule 29 (C#-&gt;D) D=8:3)<br>
+
+; Measure 6 Beat 4.5 Chord Type: vii<sup>o6</sup>/ii<br>
+
+i1 23.5 0.5 0 10 1 ; (C#5, Rule: 20.b)<br>
+
+i2 23.5 0.5 0 25 3 ; (A#4, Rule: 20.a)<br>
+
+i3 23.5 0.5 0 160 27 ; (E4, Rule: 20.c)<br>
+
+i4 23.5 0.5 0 5 2 ; (C#3, Rule: 20.b)<br>
+
+; Measure 7 Beat 1 Chord Type: ii<br>
+
+i1 24 0.5 0 32 3 ; (D5, Rule: 5.b)<br>
+
+i2 24 0.5 0 80 9 ; (B4, Rule: 5.a)<br>
+
+i3 24 0.5 0 20 3 ; (F#4, Rule: 5.c)<br>
+
+i4 24 0.5 0 20 9 ; (B2, Rule: 5.a)<br>
+
+; Measure 7 Beat 1.5 Chord Type: vii<sup>o6</sup><br>
+
+i1 24.5 0.5 0 32 3 ; (D5, Rule: 20.c)<br>
+
+i2 24.5 0.5 0 9 1 ; (B4, Rule: 20.b)<br>
+
+; (Held Mutable Tone)<br>
+
+i3 24.5 0.5 0 15 2 ; (G#4, Rule: 20.a)<br>
+
+i4 24.5 0.5 0 9 4 ; (B2, Rule: 20.b)<br>
+
+; (Held mutable tone)<br>
+
+; Measure 7 Beat 2 Chord Type: I<sup>6</sup><br>
+
+i1 25 0.5 0 10 1 ; (C#5, Rule: 1.b)<br>
+
+i2 25 0.5 0 6 1 ; (E4, Rule: 1.c)<br>
+
+i3 25 0.5 0 8 1 ; (A4, Rule: 1.a)<br>
+
+i4 25 0.5 0 5 2 ; (C#3, Rule: 1.b)<br>
+
+; Measure 7 Beat 2.5 Chord Type: IV<sup>7</sup><br>
+
+i1 25.5 0.5 0 10 1 ; (C#5, Rule: 12.d)<br>
+
+i2 25.5 0.5 0 20 3 ; (F#4, Rule: 12.b)<br>
+
+i3 25.5 0.5 0 8 1 ; (A4, Rule: 12.c)<br>
+
+i4 25.5 0.5 0 8 3 ; (D3, Rule: 12.a)<br>
+
+; Measure 7 Beat 3 Chord Type: V<br>
+
+i1 26 1 0 9 1 ; (B4, Rule: 15.c)<br>
+
+i2 26 1 0 15 2 ; (G#4, Rule: 15.b)<br>
+
+i3 26 1 0 6 1 ; (E4, Rule: 15.a)<br>
+
+i4 26 1 0 3 1 ; (E3, Rule: 15.a)<br>
+
+; Measure 7 Beat 4 Chord Type: vi<br>
+
+i1 27 1 0 8 1 ; (A4, Rule: 18.b)<br>
+
+i2 27 1 0 20 3 ; (F#4, Rule: 18.a)<br>
+
+i3 27 1 0 5 1 ; (C#4, Rule: 18.c)<br>
+
+i4 27 1 0 10 3 ; (F#3, Rule: 18.a)<br>
+
+; Measure 8 Beat 1 Chord Type: V<sup>6</sup><br>
+
+i1 28 0.5 0 9 1 ; (B4, Rule: 15.c)<br>
+
+i2 28 0.5 0 6 1 ; (E4, Rule: 15.a)<br>
+
+i3 28 0.5 0 9 2 ; (B3, Rule: 15.c)<br>
+
+i4 28 0.5 0 15 4 ; (G#3, Rule: 15.b)<br>
+
+; Measure 8 Beat 1.5 Chord Type: vii<sup>o</sup><br>
+
+i1 28.5 0.5 0 9 1 ; (B4, Rule: 20.b)<br>
+
+i2 28.5 0.5 0 16 3 ; (D4, Rule: 20.c)<br>
+
+i3 28.5 0.5 0 9 2 ; (B3, Rule: 20.b)<br>
+
+i4 28.5 0.5 0 15 4 ; (G#3, Rule: 20.a)<br>
+
+; Measure 8 Beat 2 Chord Type: I<br>
+
+i1 29 0.5 0 10 1 ; (C#5, Rule: 1.b)<br>
+
+i2 29 0.5 0 5 1 ; (C#4, Rule: 1.b)<br>
+
+i3 29 0.5 0 3 1 ; (E3, Rule: 1.c)<br>
+
+i4 29 0.5 0 4 1 ; (A3, Rule: 1.a)<br>
+
+; Measure 8 Beat 2.5 Chord Type: vii<sup>o7</sup>/V<br>
+
+; (Rule 21.a: CONTRADICTION)<br>
+
+; i1 29.5 0.5 (C#5)<br>
+
+; i2 29.5 0.5 (D#4)<br>
+
+; i3 29.5 0.5 (F#3)<br>
+
+; i4 29.5 0.5 (A3)<br>
+
+; Measure 8 Beat 3 Chord Type: V<br>
+
+i1 30 0.5 0 9 1 ; (B4, Rule: 15.c)<br>
+
+i2 30 0.5 0 6 1 ; (E4, Rule: 15.a)<br>
+
+i3 30 0.5 0 15 4 ; (G#3, Rule: 15.b)<br>
+
+i4 30 0.5 0 3 1 ; (E3, Rule: 15.a)<br>
+
+; Measure 8 Beat 3.5 Chord Type: V<sup>7</sup><br>
+
+i1 30.5 0.5 0 9 1 ; (B4, Rule: 16.c)<br>
+
+i2 30.5 0.5 0 16 3 ; (D4, Rule: 16.d)<br>
+
+i3 30.5 0.5 0 15 4 ; (G#3, Rule: 16.b)<br>
+
+i4 30.5 0.5 0 3 1 ; (E3, Rule: 16.a)<br>
+
+; Measure 8 Beat 4 Chord Type: vi<br>
+
+i1 31 0.5 0 8 1 ; (A4, Rule: 18.b)<br>
+
+i2 31 0.5 0 5 1 ; (C#4, Rule: 18.c)<br>
+
+i3 31 0.5 0 4 1 ; (A3, Rule: 18.b)<br>
+
+i4 31 0.5 0 10 3 ; (F#3, Rule: 18.a)<br>
+
+; Measure 8 Beat 4.5 Chord Type: I<sup>6/4</sup><br>
+
+i1 31.5 0.5 0 8 1 ; (A4, Rule: 1.a)<br>
+
+i2 31.5 0.5 0 5 1 ; (C#4, Rule: 1.b)<br>
+
+i3 31.5 0.5 0 4 1 ; (A3, Rule: 1.a)<br>
+
+i4 31.5 0.5 0 3 1 ; (E3, Rule: 1.c)<br>
+
+; Measure 9 Beat 1 Chord Type: V<sup>6/5</sup>/V<br>
+
+i1 32 0.5 0 8 1 ; (A4, Rule: 16.d)<br>
+
+i2 32 0.5 0 27 4 ; (F#4, Rule: 16.c)<br>
+
+i3 32 0.5 0 9 2 ; (B3, Rule: 16.a)<br>
+
+i4 32 0.5 0 45 16 ; (D#3, Rule: 16.b)<br>
+
+; Measure 9 Beat 1.5 Chord Type: vii<sup>o7</sup>/V (Rule 21.a: CONTRADICTION)<br>
+
+; i1 32.5 0.5 (A4)<br>
+
+; i2 32.5 0.5 (F#4)<br>
+
+; i3 32.5 0.5 (C#4)<br>
+
+; i4 32.5 0.5 (D#3)<br>
+
+; Measure 9 Beat 2 Chord Type: V<sup>7</sup> (-5)<br>
+
+i1 33 1 0 15 2 ; (G#4, Rule: 16.b)<br>
+
+i2 33 1 0 6 1 ; (E4, Rule: 16.a)<br>
+
+i3 33 1 0 16 3 ; (D4, Rule: 16.d)<br>
+
+i4 33 1 0 3 1 ; (E3, Rule: 16.a)<br>
+
+; Measure 9 Beat 3 Chord Type: I<br>
+
+i1 34 2 0 8 1 ; (A4, Rule: 1.a)<br>
+
+i2 34 2 0 6 1 ; (E4, Rule: 1.c)<br>
+
+i3 34 2 0 5 1 ; (C#4, Rule: 1.b)<br>
+
+i4 34 2 0 2 1 ; (A2, Rule: 1.a)<br>
+
+e
+
+</p>
+
+<p>
+
+<br>
+
+<i>Robert Asmussen</i>
+
+<i>
+
+<br>
+
+</i>
+
+<i>2008</i>
+
+</p>
+
+
+<a href="mailto:musrla@hotmail.com"><img src="image002.gif" /></a>
+
+
+<p align="center">
+
+<a href="bach1.html"><img border="0" src="prev.gif" width="64" height="64"></a>
+
+<a href="index.html"><img border="0" src="toc.gif" width="64" height="64"></a>
+
+</p>
+
+
+
+</body>
+
+
+
+</html>
+
